@@ -9,7 +9,7 @@ COPY pnpm-lock.yaml ./
 RUN pnpm install
 
 # Rebuild the source code only when needed
-FROM node:16-alpine AS builder
+FROM node:16-alpine@sha256:15dd66f723aab8b367abc7ac6ed25594ca4653f2ce49ad1505bfbe740ad5190e AS builder
 WORKDIR /app
 RUN apk add --no-cache libc6-compat && npm install -g pnpm
 COPY --from=deps /app/node_modules ./node_modules
