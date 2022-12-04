@@ -23,7 +23,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN pnpm run build
 
 # Production image, copy all the files and run next
-FROM node:16-alpine AS runner
+FROM node:16-alpine@sha256:15dd66f723aab8b367abc7ac6ed25594ca4653f2ce49ad1505bfbe740ad5190e AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
